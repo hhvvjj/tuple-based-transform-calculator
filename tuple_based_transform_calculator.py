@@ -58,13 +58,16 @@
 # * 1. STANDARD LIBRARY IMPORTS
 # ***********************************************************************************
 
+
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
 import sys
 
+
 # ***********************************************************************************
 # * 2. CONFIGURATION AND DATA STRUCTURES
 # ***********************************************************************************
+
 
 class Config:
     DEFAULT_Q = 1
@@ -78,6 +81,7 @@ class Config:
         'GREEN': '\033[32m',
         'RESET': '\033[0m'
     }
+
 
 @dataclass
 class TupleTransform:
@@ -106,9 +110,11 @@ class TupleTransform:
         """Returns the 4-element tuple representation [p, f(p), m, q]"""
         return [self.p, self.f_p, self.m, self.q]
 
+
 # ***********************************************************************************
 # * 3. CORE MATHEMATICAL FUNCTIONS
 # ***********************************************************************************
+
 
 def collatz_function(n: int) -> int:
     """
@@ -177,9 +183,11 @@ def generate_collatz_sequence(n: int) -> List[int]:
     
     return sequence
 
+
 # ***********************************************************************************
 # * 4. TUPLE TRANSFORMATION UTILITIES
 # ***********************************************************************************
+
 
 def _has_matching_parity(first_num: int, second_num: int) -> bool:
     """
@@ -296,9 +304,11 @@ def _calculate_transform_parameters(ci: int, ci_plus_1: int, q: int) -> Optional
     
     return None
 
+
 # ***********************************************************************************
 # * 5. MAIN TRANSFORMATION ALGORITHMS
 # ***********************************************************************************
+
 
 def get_tuple(ci: int, ci_plus_1: int, q: int) -> Optional[TupleTransform]:
     """
@@ -437,9 +447,11 @@ def tuple_based_transform(n: int, q: int = Config.DEFAULT_Q) -> Tuple[List[int],
     
     return collatz_seq, tuple_transforms, p_sequence, m_sequence
 
+
 # ***********************************************************************************
 # * 6. DISPLAY AND OUTPUT FUNCTIONS
 # ***********************************************************************************
+
 
 def display_banner() -> None:
     """
@@ -469,6 +481,7 @@ def display_banner() -> None:
     print("* Tuple-based transform calculator                                       *")
     print("*" * 74)
     print("")
+
 
 def display_algorithm_setup(n: int, q: int) -> None:
     """
@@ -969,9 +982,11 @@ def display_m_sequence(m_sequence: List[int]) -> None:
     print(f"\t{m_sequence}")
     print("")
 
+
 # ***********************************************************************************
 # * 7. COMMAND LINE AND PROGRAM CONTROL
 # ***********************************************************************************
+
 
 def parse_command_line_args(args: Optional[List[str]] = None) -> Tuple[int, int]:
     """
